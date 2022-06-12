@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AttedanceController;
-
+use App\Http\Controllers\PublicController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,3 +40,7 @@ Route::get('/attedances/{id}', [AttedanceController::class, 'show'])->middleware
 Route::post('/attedances', [AttedanceController::class, 'create'])->middleware('auth:sanctum');
 Route::put('/attedances/{id}', [AttedanceController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/attedances/{id}', [AttedanceController::class, 'destroy'])->middleware('auth:sanctum');
+
+
+// Public Access 
+Route::get('/public/events', [PublicController::class, 'getEventAll']);
